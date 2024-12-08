@@ -25,7 +25,7 @@ const ExpenseForm = ({onSaveExpenseData,expenseShowForm})=>{
         setUserInput((latestState) => {
           return {
             ...latestState,
-            enteredAmount: event.target.value
+            enteredAmount: +event.target.value
           }
         })
       };
@@ -35,7 +35,7 @@ const ExpenseForm = ({onSaveExpenseData,expenseShowForm})=>{
         setUserInput((latestState) => {
           return {
             ...latestState,
-            enteredDate: (event.target.value)
+            enteredDate: event.target.value
           }
         })
       };
