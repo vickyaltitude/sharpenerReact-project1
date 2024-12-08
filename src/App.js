@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+import ShowFormOption from "./components/NewExpense/ShowFormOption";
 
 function App() {
   const [expenses,setExpenses] = useState([
@@ -9,7 +10,7 @@ function App() {
     { id: "3", date: new Date(2024, 10, 11), title: "Pen", price: 1,location:'Hyderabad' },
     { id: "4", date: new Date(2025, 1, 14), title: "Laptop", price: 200,location:'Mumbai' },
   ]);
- 
+ const [showForm,setShowForm] = useState(false);
   function getNewExpenseInput(receivedIn){
     console.log(receivedIn)
     let dateArr = receivedIn.enteredDate.split('-')
@@ -24,7 +25,8 @@ function App() {
   }
   return (
     <div>
-     <NewExpense onNewExpenseData={getNewExpenseInput} />
+      {!showForm &&  <ShowFormOption setShowForm={setShowForm}/>}
+      {showForm && <NewExpense onNewExpenseData={getNewExpenseInput} setShowForm={setShowForm}/>}
       <Expenses expenses={expenses} />
     </div>
   );

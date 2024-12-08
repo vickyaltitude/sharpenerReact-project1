@@ -4,7 +4,7 @@ import './ExpenseDate.css'
 let months = ['January','February','March','April','May','June','July','August','September','October','November','December']
 
 const ExpenseDate = (props) => {
-   console.log(props.calenderDate)
+   
     let month = months[props.calenderDate.getMonth()]
     let year = props.calenderDate.getFullYear();
     let dates = props.calenderDate.getDate();
